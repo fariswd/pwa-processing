@@ -6,7 +6,8 @@ export default function TheNavBar() {
     <nav className="navbar is-link">
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+          {/* <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" /> */}
+          <h1 style={{fontSize: 20}}>Processing Viewer</h1>
         </Link>
         <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
