@@ -1,5 +1,5 @@
 const initialState = {
-  name: 'capung'
+  name: 'https://github.com/fariswd/pwa-processing'
 }
 
 export default function reducer(state = initialState, action) {

@@ -4,15 +4,24 @@ import { connect } from 'react-redux'
 import { getImages } from '../action/ImageActions'
 
 class Home extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      images: []
+  componentDidMount() {
+    if (!this.props.init) {
+      this.props.getImages(1)
+      this.props.initChange()
+    }
+    window.addEventListener('scroll', this.onScroll, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll = () => {
+    if ((window.innerHeight + window.scrollY > document.body.offsetHeight - 200) && !this.props.loading) {
+      this.props.getImages(+this.props.page + 1)
     }
   }
-  componentDidMount() {
-    this.props.getImages()
-  }
+
   render() {
     const { images } = this.props
     return (
@@ -30,15 +39,18 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    images: state.image.processing
+    images: state.image.processing,
+    page: state.image.page,
+    loading: state.image.loading,
+    init: state.image.init,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getImages: () => dispatch(getImages())
+    getImages: (page) => dispatch(getImages(page)),
+    initChange: () => dispatch({type: 'SET_INIT'})
   }
 }
 

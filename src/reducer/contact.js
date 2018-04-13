@@ -1,5 +1,5 @@
 const initialState = {
-  email: 'ca@pung.com'
+  email: 'e@mail.com'
 }
 
 export default function Contact(state = initialState, action) {

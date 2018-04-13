@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import store from './config/store'
 import RootNavigation from './navigation/RootNavigation'
 import 'bulma/css/bulma.css';
+import './static/css/App.css';
 
 class App extends React.Component {
   render() {

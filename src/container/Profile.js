@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 class Profile extends React.Component {
   render() {
     return (
-      <h1>This is Profile {this.props.profile.name}</h1>
+      <div className='center-aligner' >
+        <a href={this.props.profile.name}>{this.props.profile.name}</a>
+      </div>
     )
   }
 }
